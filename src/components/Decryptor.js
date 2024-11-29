@@ -3,10 +3,10 @@ import React, { useState } from 'react';
 import { decryptAES } from '../utils/encryption';
 
 const Decryptor = () => {
-    const [inputText, setInputText] = useState('');
-    const [secretKey, setSecretKey] = useState('');
-    const [decryptedText, setDecryptedText] = useState('');
-    const [showKey, setShowKey] = useState(false);
+    const [inputText, setInputText] = useState(''); // Almacena el texto encriptado que el usuario desea desencriptar.
+    const [secretKey, setSecretKey] = useState(''); // Almacena la clave secreta proporcionada por el usuario.
+    const [decryptedText, setDecryptedText] = useState(''); // Almacena el resultado de la desencriptación.
+    const [showKey, setShowKey] = useState(false); // Determina si la clave secreta se muestra como texto plano o como un campo de contraseña.
 
     const handleDecrypt = () => {
         if (!inputText || !secretKey) {
@@ -30,6 +30,10 @@ const Decryptor = () => {
         } catch (err) {
             alert('Error al copiar el texto. Intenta nuevamente.');
         }
+    };
+
+    const clearDecryptedText = () => {
+        setDecryptedText(''); // Limpia el contenido del texto desencriptado
     };
 
     return (
@@ -59,7 +63,10 @@ const Decryptor = () => {
                     <h2>Texto Desencriptado:</h2>
                     <p>{decryptedText}</p>
                     {decryptedText && (
-                        <button onClick={copyToClipboard}>Copiar</button>
+                        <div>
+                            <button onClick={copyToClipboard}>Copiar</button>
+                            <button onClick={clearDecryptedText}>Borrar</button> {/* Botón para borrar el texto desencriptado */}
+                        </div>
                     )}
                 </div>
             </div>

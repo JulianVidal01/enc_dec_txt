@@ -16,7 +16,7 @@ export const decryptAES = (encryptedText, secretKey) => {
     }
 
     const bytes = CryptoJS.AES.decrypt(encryptedText, secretKey);
-    const decrypted = bytes.toString(CryptoJS.enc.Utf8);
+    const decrypted = bytes.toString(CryptoJS.enc.Utf8); // El resultado se convierte a una cadena de texto legible (UTF-8)
 
     // Verificar si el texto desencriptado es válido
     if (!decrypted) {
