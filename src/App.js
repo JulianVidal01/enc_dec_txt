@@ -12,8 +12,8 @@ const App = () => {
         <>
             <GlobalStyles /> {/* Asegúrate de que esté aquí */}
             <div className="App">
-                <EncryptorFile />
-                <DecryptorFile />
+                <Encryptor />
+                <Decryptor />
             </div>
         </>
     );
